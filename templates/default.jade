@@ -1,0 +1,21 @@
+doctype html
+meta(name='viewport', content='width=device-width, initial-scale=1.0')
+html
+ head
+  link(rel='stylesheet', href='/css/index.css')
+  title Statera
+ body
+  .header
+   h1.page-title Statera
+ 
+  ul.nav
+   li: a(href='/') Home
+   li: a(href='/directory') Directory
+   li: a(href='/about') About
+   li: a(href='/compare') Compare
+     
+  .main-content
+   block content
+
+  .footer
+   p Copyright © 2016 Mark Schatzman and Adam Svetec

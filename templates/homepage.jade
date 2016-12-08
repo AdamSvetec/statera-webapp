@@ -1,0 +1,11 @@
+extend default
+
+block content
+
+ p.
+  Search any company below to review our calculated 'lean' for our 10
+  chosen political issues.
+
+ form(class="form-wrapper cf", method="post", action="/company")
+  input(type="text", placeholder="Search.." required,  name="comp_name")
+  button(type="submit") Search

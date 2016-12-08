@@ -1,0 +1,81 @@
+doctype html
+meta(name='viewport', content='width=device-width, initial-scale=1.0')  
+html
+ head
+  link(rel='stylesheet', href='/css/index.css')
+  title Statera
+  body
+    script(type="text/javascript").
+      $('.horizontal .progress-fill span').each(function(){
+       window.alert("Here");
+       console.log("here");
+       var percent = $(this).html();
+       $(this).parent().css('width', 40%);
+       });
+       
+   .header
+    h1.page-title #{company}
+
+   ul.nav
+    li: a(href='/') Home
+    li: a(href='/company_directory') Directory
+    li: a(href='/about') About
+    li: a(href='/compare') Compare
+
+  .main-content
+   div.issue
+    h1 Abortion
+    div(class='container horizontal rounded')
+     h2 Liberal vs. Conservative
+     div(class='progress-bar horizontal')
+      div(class='progress-track')
+       div(class='progress-fill')
+        span 43%
+    
+    h1.score #{abortion}
+    h3 #{abortion_lean}
+
+   div.issue
+    h1 Financial Regulation
+    h1.score #{financial_regulation}
+    h3 #{financial_regulation_lean}
+
+   div.issue
+    h1 Science and Technology Innovation
+    h1.score #{STI}
+    h3 #{STI_lean}
+
+   div.issue
+    h1 Immigration
+    h1.score #{immigration}
+    h3 #{immigration_lean}
+
+   div.issue
+    h1 Foreign Trade
+    h1.score #{foreign_trade}
+    h3 #{foreign_trade_lean}
+
+   div.issue
+    h1 Healthcare
+    h1.score #{healthcare_score}
+    h3 #{healthcare_lean}
+
+   div.issue
+    h1 Gun Control
+    h1.score #{gun_control_score}
+    h3 #{gun_control_lean}
+
+   div.issue
+    h1 Taxation
+    h1.score #{taxation_score}
+    h3 #{taxation_lean}
+
+   div.issue
+    h1 Labor and Employment
+    h1.score #{labor_score}
+    h3 #{labor_lean}
+
+   div.issue
+    h1 Environmental Regulation
+    h1.score #{environment_score}
+    h3 #{environment_lean}

@@ -1,0 +1,23 @@
+{
+    "name": "statera",
+    "version": "1.0.0",
+    "description": "Web App",
+    "config": {"port": "3000"},
+    "main": "server.js",
+    "scripts": {
+	"build-css": "stylus ~/Statera/stylesheets/index.styl -o static/css ~/Statera/stylesheets/company.styl -o static/css",
+	"watch-css": "stylus ~/Statera/stylesheets/index.styl -o static/css -w",
+	"clean": "rm -rf static/css && mkdir -p static/css",
+	"build": "npm run clean && npm run build-css",
+	"watch": "npm run clean && npm run watch-css & nodemon server -e js,jade",
+	"start": "node server"
+    },
+  "author": "Mark Schatzman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "jade": "^1.11.0",
+    "morgan": "^1.7.0",
+    "stylus": "^0.54.5"
+  }
+}
