@@ -82,7 +82,7 @@ app.post('/company', function (req, res) {
     var queryString = 'SELECT * from  organization, org_score, issue  where organization.Orgname like \'' + userSearch + "' AND organization.Id=org_score.org_id AND issue.id=org_score.issue_id";
     console.log(queryString)
     connection.query(queryString, function(err_query, data) {
-	console.log(data)
+	//console.log(data)
 	if(typeof data[0] != 'undefined' && data){
 	    var desc  = []
 	    for(var i = 0; i < 10; i++)

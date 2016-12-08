@@ -5,7 +5,7 @@
     "config": {"port": "3000"},
     "main": "server.js",
     "scripts": {
-	"build-css": "stylus ~/Statera/stylesheets/index.styl -o static/css ~/Statera/stylesheets/company.styl -o static/css",
+	"build-css": "stylus ~/Statera/stylesheets/index.styl -o static/css",
 	"watch-css": "stylus ~/Statera/stylesheets/index.styl -o static/css -w",
 	"clean": "rm -rf static/css && mkdir -p static/css",
 	"build": "npm run clean && npm run build-css",

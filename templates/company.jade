@@ -2,17 +2,12 @@ doctype html
 meta(name='viewport', content='width=device-width, initial-scale=1.0')  
 html
  head
-  link(rel='stylesheet', href='/css/index.css')
+  link(rel='stylesheet', href='/css/index.css') 
   title Statera
   body
-    script(type="text/javascript").
-      $('.horizontal .progress-fill span').each(function(){
-       window.alert("Here");
-       console.log("here");
-       var percent = $(this).html();
-       $(this).parent().css('width', 40%);
-       });
-       
+   link(rel='stylesheet', href='/css/company.css')
+   script(src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js")
+   script(type="text/javascript", src="/js/company.js")
    .header
     h1.page-title #{company}
 
@@ -25,13 +20,12 @@ html
   .main-content
    div.issue
     h1 Abortion
-    div(class='container horizontal rounded')
-     h2 Liberal vs. Conservative
-     div(class='progress-bar horizontal')
-      div(class='progress-track')
-       div(class='progress-fill')
-        span 43%
-    
+    div(id='score-counter' class='total-score')
+    div(class='score-range') 400 to 1600
+    div(class='score-graph' data-percent='9%')
+     div(class='score-graph-bar')
+      span
+       i(class='fa fa-star' aria-hidden='true')
     h1.score #{abortion}
     h3 #{abortion_lean}
 
