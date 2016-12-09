@@ -19,6 +19,32 @@ body
    text-transform uppercase
    color #fff
 
+.company-title
+ font-weight 115px
+ font-size 115px
+ text-align center
+ padding-top 50px
+ text-transform uppercase
+ color #fff
+
+.company-amount
+ font-weight 5px
+ font-size 25px
+ font-style italic
+ text-align center
+ color #fff
+
+//Styling for Directory -------------------------->
+h2
+ font-color red
+ font-size 40px
+ text-align left
+ padding 5px
+
+li
+ text-align left
+ padding 2px
+
 .nav
  background #000
  text-align center
@@ -195,3 +221,42 @@ body
 .form-wrapper button::-moz-focus-inner
  border 0
  padding 0
+
+//Styling for bar chart -------------------->
+.table-format
+ font-family sans-serif
+ max-width 60em
+ margin auto
+ padding 1em
+
+table
+ width 100%
+ //background #eee
+ padding 1em
+ margin 1em auto
+ box-sizing border-box
+ border 1px solid #ccc
+
+th
+ font-size 1.2em
+
+td
+ font-weight bold
+ width 0%
+ padding .5em .25em
+ background-size 0% 100%
+ background-repeat  no-repeat
+ -webkit-transition all .75s ease-out
+ -moz-transition all .75s ease-out
+ transition all .75s ease-out
+
+td:nth-child(2)
+ width 50%
+ background-image linear-gradient(90deg, rgb(5, 0, 86), rgb(5, 0, 86))
+ background-position right top
+
+td:nth-child(3)
+ width 50%
+ background-image linear-gradient(0deg, rgb(150, 3, 3), rgb(150, 3, 3))
+ background-position left top
+

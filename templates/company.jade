@@ -5,71 +5,125 @@ html
   link(rel='stylesheet', href='/css/index.css') 
   title Statera
   body
-   link(rel='stylesheet', href='/css/company.css')
    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js")
    script(type="text/javascript", src="/js/company.js")
    .header
-    h1.page-title #{company}
-
+    h1.company-title #{company}
+    h2.company-amount Total contributions: #{total_contr}
+    h2.company-amount Total amount:  $#{total_amount}
    ul.nav
     li: a(href='/') Home
-    li: a(href='/company_directory') Directory
+    li: a(href='/directory') Directory
     li: a(href='/about') About
     li: a(href='/compare') Compare
 
   .main-content
    div.issue
     h1 Abortion
-    div(id='score-counter' class='total-score')
-    div(class='score-range') 400 to 1600
-    div(class='score-graph' data-percent='9%')
-     div(class='score-graph-bar')
-      span
-       i(class='fa fa-star' aria-hidden='true')
-    h1.score #{abortion}
+    .table-format
+     table
+      tr
+      td 
+      td #{abortion_lean_l}
+      td #{abortion_lean_r}
+    //h1.score #{abortion}
     h3 #{abortion_lean}
 
    div.issue
     h1 Financial Regulation
-    h1.score #{financial_regulation}
+    .table-format
+     table
+      tr
+      td
+      td #{fin_lean_l}
+      td #{fin_lean_r}
+    //h1.score #{financial_regulation}
     h3 #{financial_regulation_lean}
 
    div.issue
     h1 Science and Technology Innovation
-    h1.score #{STI}
+    .table-format
+     table
+      tr
+       td
+       td #{STI_lean_l}
+       td #{STI_lean_r}
+    //h1.score #{STI}
     h3 #{STI_lean}
 
    div.issue
     h1 Immigration
-    h1.score #{immigration}
+    .table-format
+     table
+      tr
+       td
+       td #{immigration_lean_l}
+       td #{immigration_lean_r}
+    //h1.score #{immigration}
     h3 #{immigration_lean}
 
    div.issue
     h1 Foreign Trade
-    h1.score #{foreign_trade}
+    .table-format
+     table
+      tr
+       td
+       td #{foreign_trade_lean_l}
+       td #{foreign_trade_lean_r}
+    //h1.score #{foreign_trade}
     h3 #{foreign_trade_lean}
 
    div.issue
     h1 Healthcare
-    h1.score #{healthcare_score}
+    .table-format
+     table
+      tr
+       td
+       td #{healthcare_lean_l}
+       td #{healthcare_lean_r}
+    //h1.score #{healthcare_score}
     h3 #{healthcare_lean}
 
    div.issue
     h1 Gun Control
-    h1.score #{gun_control_score}
+    .table-format
+     table
+      tr
+       td
+       td #{gun_control_lean_l}
+       td #{gun_control_lean_r}
+    //h1.score #{gun_control_score}
     h3 #{gun_control_lean}
 
    div.issue
     h1 Taxation
-    h1.score #{taxation_score}
+    .table-format
+     table
+      tr
+       td
+       td #{taxation_lean_l}
+       td #{taxation_lean_r}
+    //h1.score #{taxation_score}
     h3 #{taxation_lean}
 
    div.issue
     h1 Labor and Employment
-    h1.score #{labor_score}
+    .table-format
+     table
+      tr
+       td
+       td #{labor_lean_l}
+       td #{labor_lean_r}
+    //h1.score #{labor_score}
     h3 #{labor_lean}
 
    div.issue
     h1 Environmental Regulation
-    h1.score #{environment_score}
+    .table-format
+     table
+      tr
+       td
+       td #{environment_lean_l}
+       td #{environment_lean_r}
+    //h1.score #{environment_score}
     h3 #{environment_lean}
