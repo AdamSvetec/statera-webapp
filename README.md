@@ -4,7 +4,7 @@ Repo containing source code for running Statera web site at http://statera-us.co
 
 ## Server
 
-Server.js handles all POST/GET requests and specifically queries db for information pertaining to company user has searched for.
+Server.js handles all POST and GET requests and specifically queries db for information pertaining to company user has searched for.
 
 ## Templates
 
