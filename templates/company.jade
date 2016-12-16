@@ -9,13 +9,17 @@ html
    script(type="text/javascript", src="/js/company.js")
    .header
     h1.company-title #{company}
-    h2.company-amount Total contributions: #{total_contr}
-    h2.company-amount Total amount:  $#{total_amount}
+    h2.placeholder
+    h2.placeholder
+    h2.placeholder
+    h2.company-amount Total contributions: #{total_contr}               Total amount:  $#{total_amount}
+    //h2.company-amount Total amount:  $#{total_amount}
    ul.nav
     li: a(href='/') Home
     li: a(href='/directory') Directory
     li: a(href='/about') About
-    li: a(href='/compare') Compare
+    //Future implementation. Compare companies side by side
+    //li: a(href='/compare') Compare
 
   .main-content
    div.issue

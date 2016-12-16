@@ -3,6 +3,6 @@ extend default
 block content
  h2 List of Selected Fortune500 Companies
 
- ul
-  h3 #{list}
- 
+ ol
+  for i in list
+   li #{i.Orgname}

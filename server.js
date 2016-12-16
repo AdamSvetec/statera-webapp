@@ -1,6 +1,9 @@
+//DB import
 var mysql = require('mysql');
+//Config import
 var config = require('./config')['production'];
 
+//Create connection to database
 var connection = mysql.createConnection(
     {
 	host : config.database.host,
@@ -9,9 +12,9 @@ var connection = mysql.createConnection(
 	database : config.database.name,
     }
 );
-
 connection.connect();
 
+//Import express(web framework for jade) and parser to read dynamic jade variables
 var express = require('express')
 var app=express()
 var bodyParser = require('body-parser')
@@ -29,12 +32,14 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 , about = require('jade').compileFile(__dirname + '/templates/about.jade')
 , compare = require('jade').compileFile(__dirname + '/templates/compare.jade')
 
+//Instruct app to use above variables
 app.use(logger('dev'))
 app.use(express.static(__dirname + '/static'))
 app.set('view engine', 'jade')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.text({ type: 'text/html' }))
 
+//Handle request to view homepage
 app.get('/', function (req, res, next) {
     var html = home({ title: 'Home'})	    
     try {
@@ -44,6 +49,7 @@ app.get('/', function (req, res, next) {
    }
 })
 
+//Handle request to view about page
 app.get('/about', function (req, res, next) {
     try {
 	var html = about({ title: 'About' })
@@ -52,38 +58,40 @@ app.get('/about', function (req, res, next) {
 	next(e)
     }
 })
-/*
-app.get('/company_new', function (req, res, next) {
-    try {
-	res.render(__dirname + '/templates/company_new.jade',
-		   {issue_names: ['Abortion', 'Immigration']})
-    } catch (e) {
-	next(e)
-    }
-})
-*/
+
+//Handle request to view directory page
 app.get('/directory', function (req, res) {
+    //Query DB
     var queryString = 'Select Orgname from organization'
     console.log(queryString)
     connection.query(queryString, function(err_query, data){
+	//Push each company name into array
 	var arr = []
 	for(var i = 0; i < data.length; i++)
 	    arr.push(data[i])
-	console.log("First val: " + arr[42])
-	console.log(arr)
+	//console.log("First val: " + arr[42])
+	//console.log(arr)
+	//display directory page with input company names
 	res.render(
 	    __dirname + '/templates/directory.jade',
 	    {list: data})
     })
 })
-		  
+
+//Handle search for a given company name		  
 app.post('/company', function (req, res) {
+    //Get name of company searched for
     var userSearch = req.body.comp_name
+
+    //Query DB for company name
     var queryString = "SELECT * from  organization, org_score, issue  where organization.Orgname like '%" + userSearch + "%' AND organization.Id=org_score.org_id AND issue.id=org_score.issue_id ORDER BY org_score.org_id, issue.Id";
-    console.log(queryString)
+    //console.log(queryString)
     connection.query(queryString, function(err_query, data) {
 	//console.log(data)
+
+	//If company name does not exists, stay on home page. Else render company/COMP_NAME.
 	if(typeof data[0] != 'undefined' && data){
+	    //Place company description and scores in respective arrays
 	    var desc  = []
 	    var scores = [10]
 	    for(var i = 0; i < 10; i++)
@@ -108,6 +116,7 @@ app.post('/company', function (req, res) {
 		    console.log("NO LEAN")
 		}
 	    }
+	    //Display company page with company scores and respective descriptions.
 	    res.render(
 		__dirname + '/templates/company.jade',
 		{company: data[0].Orgname, total_amount: data[0].total_amount.toLocaleString('en-US'), total_contr: data[0].total_contr.toLocaleString('en-US'),
@@ -131,6 +140,7 @@ app.post('/company', function (req, res) {
 		    
 })
 
+/*Future implementation of compare page
 app.get('/compare', function (req, res, next) {
     var html = compare()
     try {
@@ -138,9 +148,10 @@ app.get('/compare', function (req, res, next) {
     } catch (e) {
 	next(e)
     }
-})
+})*/
 
 
+//Initiate server
 app.listen(process.env.PORT || 3000, function () {
     console.log('Listening on http://http://ec2-54-212-210-64.us-west-2.compute.amazonaws.com:' + (process.env.PORT || 3000))
 })

@@ -1,5 +1,3 @@
-@import "bourbon";
-
 .container 
  position relative
  width 300px

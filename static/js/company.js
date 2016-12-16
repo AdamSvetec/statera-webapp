@@ -1,3 +1,4 @@
+//JS to empower company score bar charts
 var twoColComp = {
     init: function() {
 	var tables = document.getElementsByTagName('table');

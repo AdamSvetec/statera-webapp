@@ -1,3 +1,4 @@
+//Main stylesheet for overall web app layout
 doctype html
 meta(name='viewport', content='width=device-width, initial-scale=1.0')
 html
@@ -7,13 +8,15 @@ html
  body
   .header
    h1.page-title Statera
- 
+
+  //Navigation Bar
   ul.nav
    li: a(href='/') Home
    li: a(href='/directory') Directory
    li: a(href='/about') About
-   li: a(href='/compare') Compare
-     
+   //Future implementation. Compare companies side by side
+   //li: a(href='/compare') Compare
+
   .main-content
    block content
 
